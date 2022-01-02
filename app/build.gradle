@@ -30,7 +30,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = Versions.jvm
         useIR = true
     }
     buildFeatures {
@@ -38,17 +38,10 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion Versions.compose
-        kotlinCompilerVersion Versions.kotlin
-    }
-    packagingOptions {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-        }
     }
 }
 
 dependencies {
-
     implementation Depends.androidx
     implementation Depends.appcompat
     implementation Depends.material

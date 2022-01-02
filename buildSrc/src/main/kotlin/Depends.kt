@@ -56,6 +56,7 @@ object Depends {
 }
 
 object Versions {
+    const val jvm = "1.8"
     const val kotlin = "1.5.31"
     const val compose = "1.0.5"
     const val activityCompact = "1.3.1"
