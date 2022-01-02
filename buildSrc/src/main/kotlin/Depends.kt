@@ -1,6 +1,8 @@
+import Versions.activityCompact
+
 object Depends {
     const val androidx = "androidx.core:core-ktx:1.7.0"
-    const val appcompat = "androidx.appcompat:appcompat:1.3.1"
+    const val appcompat = "androidx.appcompat:appcompat:${activityCompact}"
     const val material = "com.google.android.material:material:1.4.0"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:1.3.6"
     const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
@@ -9,7 +11,7 @@ object Depends {
 
     //compose
     const val compose = "androidx.compose.runtime:runtime:${Versions.compose}"
-    const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
+    const val composeActivity = "androidx.activity:activity-compose:$activityCompact"
     const val viewModelCompose =
         "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.viewModelCompose}"
     const val composeAnimation = "androidx.compose.animation:animation:${Versions.compose}"
@@ -53,7 +55,7 @@ object Depends {
 object Versions {
     const val kotlin = "1.5.21"
     const val compose = "1.0.1"
-    const val activityCompose = "1.3.1"
+    const val activityCompact = "1.3.1"
     const val viewModelCompose = "2.4.0"
     const val room = "2.3.0"
     const val junit = "4.13.2"
@@ -65,6 +67,6 @@ object Android {
     const val compileSdk = 31
     const val minSdk = 21
     const val targetSdk = 30
-    const val versionCode = 144
-    const val versionName = "1.7.60"
+    const val versionCode = 1
+    const val versionName = "1.0.0"
 }

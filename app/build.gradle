@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk Android.compileSdk
 
     defaultConfig {
         applicationId "cn.joestar.nexonom"
-        minSdk 22
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        minSdk Android.minSdk
+        targetSdk Android.targetSdk
+        versionCode Android.versionCode
+        versionName Android.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
