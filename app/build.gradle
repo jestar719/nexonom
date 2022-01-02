@@ -59,4 +59,5 @@ dependencies {
     implementation Depends.composeMaterialIconCore
     debugImplementation Depends.composeUiTool
     testImplementation Depends.junit
+    androidTestImplementation Depends.androidXTestJunit
 }
