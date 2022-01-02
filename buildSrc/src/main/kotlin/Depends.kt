@@ -7,6 +7,7 @@ object Depends {
     const val fragmentKtx = "androidx.fragment:fragment-ktx:1.3.6"
     const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
     const val viewModelSavedState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0"
+    const val livecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
     const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
 
     //compose
