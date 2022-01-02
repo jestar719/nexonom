@@ -11,21 +11,23 @@ object Depends {
     const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
 
     //compose
-    const val compose = "androidx.compose.runtime:runtime:${Versions.compose}"
+    const val composeUI = "androidx.compose.ui:ui:${Versions.compose}"
+    const val composeUiTool =
+        "androidx.compose.ui:ui-tooling:${Versions.compose}" //debugImplementation for preview
     const val composeActivity = "androidx.activity:activity-compose:$activityCompact"
-    const val viewModelCompose =
-        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.viewModelCompose}"
+    const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
     const val composeAnimation = "androidx.compose.animation:animation:${Versions.compose}"
+
+    const val composeViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.viewModelCompose}"
     const val composeFoundation = "androidx.compose.foundation:foundation:${Versions.compose}"
     const val composeFoundationLayout =
         "androidx.compose.foundation:foundation-layout:${Versions.compose}"
-    const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
-    const val composeMaterialIcon =
+    const val composeMaterialIconCore =
+        "androidx.compose.material:material-icons-core:${Versions.compose}"
+    const val composeMaterialIconExt =
         "androidx.compose.material:material-icons-extended:${Versions.compose}"
     const val composeLiveData = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
-    const val composeUI = "androidx.compose.ui:ui:${Versions.compose}"
-    const val composeUiTool = "androidx.compose.ui:ui-tooling:${Versions.compose}"
-    const val composeUiPreview = "androidx.compose.ui:ui-tooling-preview::${Versions.compose}"
     const val composeTest = "androidx.compose.ui:ui-test-junit4::${Versions.compose}"
 
     //room
@@ -54,8 +56,8 @@ object Depends {
 }
 
 object Versions {
-    const val kotlin = "1.5.21"
-    const val compose = "1.0.1"
+    const val kotlin = "1.5.31"
+    const val compose = "1.0.5"
     const val activityCompact = "1.3.1"
     const val viewModelCompose = "2.4.0"
     const val room = "2.3.0"

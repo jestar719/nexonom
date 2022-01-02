@@ -37,8 +37,8 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
+        kotlinCompilerExtensionVersion Versions.compose
+        kotlinCompilerVersion Versions.kotlin
     }
     packagingOptions {
         resources {
@@ -53,11 +53,10 @@ dependencies {
     implementation Depends.appcompat
     implementation Depends.material
     implementation Depends.livecycleKtx
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.activity:activity-compose:1.3.0-alpha06'
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation Depends.composeUI
+    implementation Depends.composeActivity
+    implementation Depends.composeMaterial
+    implementation Depends.composeMaterialIconCore
+    debugImplementation Depends.composeUiTool
     testImplementation Depends.junit
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 }
