@@ -1,132 +1,898 @@
 [
-  "1,Cloddy,普,S",
-  "10,Spikus,草,S",
-  "101,Candly,普,S",
-  "102,Porklet,火,S",
-  "105,Kawsnow,水,SR",
-  "107,Seedko,草,N",
-  "109,Pont,地,S",
-  "111,Hinazuru,风,S",
-  "114,Eqo,电,S",
-  "117,Sectoc,超,S",
-  "120,Folicurse,鬼,N",
-  "122,Poyal,普,N",
-  "125,Chowser,火,S",
-  "127,Jeloon,水,N",
-  "13,Pebglem,地,N",
-  "130,Snush,草,N",
-  "133,Durtacles,地,S",
-  "135,Fanling,风,S",
-  "138,Scooptor,电,S",
-  "141,Tundri,超,S",
-  "143,Prankrow,鬼,N",
-  "145,Calfter,普,R",
-  "148,Blit,火,S",
-  "151,Blublub,水,S",
-  "153,Stalkee,草,S",
-  "156,Rust,地,N",
-  "159,Leechy,风,S",
-  "16,Heliwurm,风,N",
-  "161,Chirrent,电,S",
-  "163,Gomarm,超,N",
-  "165,Vodo,鬼,S",
-  "168,Goateeze,普,R",
-  "170,Lumbi,火,N",
-  "172,Streamole,水,S",
-  "175,Potpot,草,R",
-  "178,Babicle,超,SR",
-  "181,Foxdra,鬼,S",
-  "182,Hohopi,普,S",
-  "184,Ribombo,火,R",
-  "187,Cruff,水,R",
-  "19,Zumble,电,N",
-  "190,Singletti,草,S",
-  "191,Singlette,草,S",
-  "193,Sandillo,地,S",
-  "196,Croo,风,R",
-  "199,Woozy,电,R",
-  "201,Magnipub,超,R",
-  "204,Ponic,鬼,SR",
-  "207,Skunqute,普,S",
-  "210,Tiliamber,火,SR",
-  "212,Mallish,水,S",
-  "215,Graciful,草,SR",
-  "217,Worb,地,R",
-  "22,Branipus,超,N",
-  "220,Frogick,风,R",
-  "222,Tesling,电,R",
-  "225,Mimi,超,N",
-  "227,Ripha,鬼,R",
-  "230,Rapi,普,SR",
-  "232,Pongo,火,R",
-  "235,Hydrip,水,N",
-  "235,Hydrip,水,R",
-  "237,Auga,草,N",
-  "241,Duh,鬼,R",
-  "244,Bira,普,SR",
-  "247,Nekpanchi,火,SR",
-  "25,Skerdi,鬼,N",
-  "250,Coral,水,R",
-  "253,Siki,草,SR",
-  "256,Moonica,地,R",
-  "259,Sae,风,SR",
-  "262,Omentic,电,SR",
-  "265,Yummo,超,S",
-  "268,Muu,鬼,R",
-  "271,Paupo,普,R",
-  "271,Worb,地,R",
-  "273,Tantrunt,火,SR",
-  "275,Mermella,水,R",
-  "277,Algon,草,S",
-  "279,Waser,地,SR",
-  "28,Griff,普,N",
-  "281,Glidlee,风,SR",
-  "283,Smanic,电,SR",
-  "285,Lovinu,超,SR",
-  "287,Lurkost,鬼,SR",
-  "298,Basil,普,SR,普龙",
-  "301,Drare,火,SR,火龙",
-  "304,Cryzzard,水,SR,水龙",
-  "307,Briar,草,SR,草龙",
-  "310,Oren,地,SR,地龙",
-  "313,Flotter,风,SR,风龙",
-  "316,Volt,电,SR,电龙",
-  "319,Wadgon,超,SR,超龙",
-  "32,Stinger,火,N",
-  "322,Deyam,鬼,SR,鬼龙",
-  "325,Dinja,普,SSR,初始",
-  "328,Lume,火,SSR,初始",
-  "331,Noki,水,SSR,初始",
-  "334,Mara,草,SSR,初始",
-  "337,Trebly,地,SSR,初始",
-  "340,Mearn,风,SSR,初始",
-  "343,Gekoko,电,SSR,初始",
-  "346,Masquiti,超,SSR,初始",
-  "349,Behilda,鬼,SSR,初始",
-  "35,Faucefant,水,N",
-  "38,Shromporo,草,N",
-  "4,Kolphur,火,N",
-  "41,Fortle,地,SR",
-  "44,Larkito,风,N",
-  "47,Chibbit,电,N",
-  "50,Dreaver,超,N",
-  "53,Ghouze,鬼,N",
-  "55,Taipluff,普,N",
-  "60,Snaibble,水,SR",
-  "63,Onin,草,R",
-  "65,Bouldion,地,N",
-  "69,Bulbrit,电,N",
-  "7,Bloopish,水,N",
-  "71,Virox,超,R",
-  "73,Cranillow,鬼,S",
-  "75,Rubby,普,N",
-  "77,Deember,火,N",
-  "81,Ploriol,草,R",
-  "86,Sounse,风,N",
-  "88,Scaratic,电,N",
-  "90,Medlass,超,N",
-  "92,Brumtler,鬼,S",
-  "94,Moga,普,N",
-  "95,Monkapow,普,N",
-  "99,Rappub,超,S"
+  {
+    "monsterId": 1,
+    "name": "Cloddy",
+    "type": "普",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 4,
+    "name": "Kolphur",
+    "type": "火",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 7,
+    "name": "Bloopish",
+    "type": "水",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 10,
+    "name": "Spikus",
+    "type": "草",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 13,
+    "name": "Pebglem",
+    "type": "地",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 16,
+    "name": "Heliwurm",
+    "type": "风",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 19,
+    "name": "Zumble",
+    "type": "电",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 22,
+    "name": "Branipus",
+    "type": "超",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 25,
+    "name": "Skerdi",
+    "type": "鬼",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 28,
+    "name": "Griff",
+    "type": "普",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 32,
+    "name": "Stinger",
+    "type": "火",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 35,
+    "name": "Faucefant",
+    "type": "水",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 38,
+    "name": "Shromporo",
+    "type": "草",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 41,
+    "name": "Fortle",
+    "type": "地",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 44,
+    "name": "Larkito",
+    "type": "风",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 47,
+    "name": "Chibbit",
+    "type": "电",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 50,
+    "name": "Dreaver",
+    "type": "超",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 53,
+    "name": "Ghouze",
+    "type": "鬼",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 55,
+    "name": "Taipluff",
+    "type": "普",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 60,
+    "name": "Snaibble",
+    "type": "水",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 63,
+    "name": "Onin",
+    "type": "草",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 65,
+    "name": "Bouldion",
+    "type": "地",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 69,
+    "name": "Bulbrit",
+    "type": "电",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 71,
+    "name": "Virox",
+    "type": "超",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 73,
+    "name": "Cranillow",
+    "type": "鬼",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 75,
+    "name": "Rubby",
+    "type": "普",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 77,
+    "name": "Deember",
+    "type": "火",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 81,
+    "name": "Ploriol",
+    "type": "草",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 86,
+    "name": "Sounse",
+    "type": "风",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 88,
+    "name": "Scaratic",
+    "type": "电",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 90,
+    "name": "Medlass",
+    "type": "超",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 92,
+    "name": "Brumtler",
+    "type": "鬼",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 94,
+    "name": "Moga",
+    "type": "普",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 95,
+    "name": "Monkapow",
+    "type": "普",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 99,
+    "name": "Rappub",
+    "type": "超",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 101,
+    "name": "Candly",
+    "type": "普",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 102,
+    "name": "Porklet",
+    "type": "火",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 105,
+    "name": "Kawsnow",
+    "type": "水",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 107,
+    "name": "Seedko",
+    "type": "草",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 109,
+    "name": "Pont",
+    "type": "地",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 111,
+    "name": "Hinazuru",
+    "type": "风",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 114,
+    "name": "Eqo",
+    "type": "电",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 117,
+    "name": "Sectoc",
+    "type": "超",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 120,
+    "name": "Folicurse",
+    "type": "鬼",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 122,
+    "name": "Poyal",
+    "type": "普",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 125,
+    "name": "Chowser",
+    "type": "火",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 127,
+    "name": "Jeloon",
+    "type": "水",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 130,
+    "name": "Snush",
+    "type": "草",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 133,
+    "name": "Durtacles",
+    "type": "地",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 135,
+    "name": "Fanling",
+    "type": "风",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 138,
+    "name": "Scooptor",
+    "type": "电",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 141,
+    "name": "Tundri",
+    "type": "超",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 143,
+    "name": "Prankrow",
+    "type": "鬼",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 145,
+    "name": "Calfter",
+    "type": "普",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 148,
+    "name": "Blit",
+    "type": "火",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 151,
+    "name": "Blublub",
+    "type": "水",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 153,
+    "name": "Stalkee",
+    "type": "草",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 156,
+    "name": "Rust",
+    "type": "地",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 159,
+    "name": "Leechy",
+    "type": "风",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 161,
+    "name": "Chirrent",
+    "type": "电",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 163,
+    "name": "Gomarm",
+    "type": "超",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 165,
+    "name": "Vodo",
+    "type": "鬼",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 168,
+    "name": "Goateeze",
+    "type": "普",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 170,
+    "name": "Lumbi",
+    "type": "火",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 172,
+    "name": "Streamole",
+    "type": "水",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 175,
+    "name": "Potpot",
+    "type": "草",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 178,
+    "name": "Babicle",
+    "type": "超",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 181,
+    "name": "Foxdra",
+    "type": "鬼",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 182,
+    "name": "Hohopi",
+    "type": "普",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 184,
+    "name": "Ribombo",
+    "type": "火",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 187,
+    "name": "Cruff",
+    "type": "水",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 190,
+    "name": "Singletti",
+    "type": "草",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 191,
+    "name": "Singlette",
+    "type": "草",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 193,
+    "name": "Sandillo",
+    "type": "地",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 196,
+    "name": "Croo",
+    "type": "风",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 199,
+    "name": "Woozy",
+    "type": "电",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 201,
+    "name": "Magnipub",
+    "type": "超",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 204,
+    "name": "Ponic",
+    "type": "鬼",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 207,
+    "name": "Skunqute",
+    "type": "普",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 210,
+    "name": "Tiliamber",
+    "type": "火",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 212,
+    "name": "Mallish",
+    "type": "水",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 215,
+    "name": "Graciful",
+    "type": "草",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 217,
+    "name": "Worb",
+    "type": "地",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 220,
+    "name": "Frogick",
+    "type": "风",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 222,
+    "name": "Tesling",
+    "type": "电",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 225,
+    "name": "Mimi",
+    "type": "超",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 227,
+    "name": "Ripha",
+    "type": "鬼",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 230,
+    "name": "Rapi",
+    "type": "普",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 232,
+    "name": "Pongo",
+    "type": "火",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 235,
+    "name": "Hydrip",
+    "type": "水",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 237,
+    "name": "Auga",
+    "type": "草",
+    "rare": "N",
+    "other": ""
+  },
+  {
+    "monsterId": 241,
+    "name": "Duh",
+    "type": "鬼",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 244,
+    "name": "Bira",
+    "type": "普",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 247,
+    "name": "Nekpanchi",
+    "type": "火",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 250,
+    "name": "Coral",
+    "type": "水",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 253,
+    "name": "Siki",
+    "type": "草",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 256,
+    "name": "Moonica",
+    "type": "地",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 259,
+    "name": "Sae",
+    "type": "风",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 262,
+    "name": "Omentic",
+    "type": "电",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 265,
+    "name": "Yummo",
+    "type": "超",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 268,
+    "name": "Muu",
+    "type": "鬼",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 271,
+    "name": "Worb",
+    "type": "地",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 273,
+    "name": "Tantrunt",
+    "type": "火",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 275,
+    "name": "Mermella",
+    "type": "水",
+    "rare": "R",
+    "other": ""
+  },
+  {
+    "monsterId": 277,
+    "name": "Algon",
+    "type": "草",
+    "rare": "S",
+    "other": ""
+  },
+  {
+    "monsterId": 279,
+    "name": "Waser",
+    "type": "地",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 281,
+    "name": "Glidlee",
+    "type": "风",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 283,
+    "name": "Smanic",
+    "type": "电",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 285,
+    "name": "Lovinu",
+    "type": "超",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 287,
+    "name": "Lurkost",
+    "type": "鬼",
+    "rare": "SR",
+    "other": ""
+  },
+  {
+    "monsterId": 298,
+    "name": "Basil",
+    "type": "普",
+    "rare": "SR",
+    "other": "普龙"
+  },
+  {
+    "monsterId": 301,
+    "name": "Drare",
+    "type": "火",
+    "rare": "SR",
+    "other": "火龙"
+  },
+  {
+    "monsterId": 304,
+    "name": "Cryzzard",
+    "type": "水",
+    "rare": "SR",
+    "other": "水龙"
+  },
+  {
+    "monsterId": 307,
+    "name": "Briar",
+    "type": "草",
+    "rare": "SR",
+    "other": "草龙"
+  },
+  {
+    "monsterId": 310,
+    "name": "Oren",
+    "type": "地",
+    "rare": "SR",
+    "other": "地龙"
+  },
+  {
+    "monsterId": 313,
+    "name": "Flotter",
+    "type": "风",
+    "rare": "SR",
+    "other": "风龙"
+  },
+  {
+    "monsterId": 316,
+    "name": "Volt",
+    "type": "电",
+    "rare": "SR",
+    "other": "电龙"
+  },
+  {
+    "monsterId": 319,
+    "name": "Wadgon",
+    "type": "超",
+    "rare": "SR",
+    "other": "超龙"
+  },
+  {
+    "monsterId": 322,
+    "name": "Deyam",
+    "type": "鬼",
+    "rare": "SR",
+    "other": "鬼龙"
+  },
+  {
+    "monsterId": 325,
+    "name": "Dinja",
+    "type": "普",
+    "rare": "SSR",
+    "other": "初始"
+  },
+  {
+    "monsterId": 328,
+    "name": "Lume",
+    "type": "火",
+    "rare": "SSR",
+    "other": "初始"
+  },
+  {
+    "monsterId": 331,
+    "name": "Noki",
+    "type": "水",
+    "rare": "SSR",
+    "other": "初始"
+  },
+  {
+    "monsterId": 334,
+    "name": "Mara",
+    "type": "草",
+    "rare": "SSR",
+    "other": "初始"
+  },
+  {
+    "monsterId": 337,
+    "name": "Trebly",
+    "type": "地",
+    "rare": "SSR",
+    "other": "初始"
+  },
+  {
+    "monsterId": 340,
+    "name": "Mearn",
+    "type": "风",
+    "rare": "SSR",
+    "other": "初始"
+  },
+  {
+    "monsterId": 343,
+    "name": "Gekoko",
+    "type": "电",
+    "rare": "SSR",
+    "other": "初始"
+  },
+  {
+    "monsterId": 346,
+    "name": "Masquiti",
+    "type": "超",
+    "rare": "SSR",
+    "other": "初始"
+  },
+  {
+    "monsterId": 349,
+    "name": "Behilda",
+    "type": "鬼",
+    "rare": "SSR",
+    "other": "初始"
+  }
 ]

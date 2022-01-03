@@ -63,7 +63,41 @@ class Monster(
 }
 
 @Entity(primaryKeys = ["monsterId", "locationId"])
-class MonsterLocation(val monsterId: Int, val locationId: Int, val landsId: Int)
+class MonsterLocation(val monsterId: Int, val locationId: Int, val landsId: Int) :
+    Comparable<MonsterLocation> {
+    override fun compareTo(other: MonsterLocation): Int {
+        if (this == other)
+            return 0
+        var result = monsterId - other.monsterId
+        if (result == 0) {
+            result = landsId - other.landsId
+        }
+        if (result == 0) {
+            result = locationId - other.locationId
+        }
+        return result
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as MonsterLocation
+
+        if (monsterId != other.monsterId) return false
+        if (locationId != other.locationId) return false
+        if (landsId != other.landsId) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = monsterId
+        result = 31 * result + locationId
+        result = 31 * result + landsId
+        return result
+    }
+}
 
 
 class DetailMonster(
