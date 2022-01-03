@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id "kotlin-kapt"
+}
+
+android {
+    compileSdk Android.compileSdk
+
+    defaultConfig {
+        minSdk Android.minSdk
+        targetSdk Android.targetSdk
+        versionCode Android.versionCode
+        versionName Android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = Versions.jvm
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    implementation Depends.androidx
+    implementation Depends.room
+    implementation Depends.roomKtx
+    kapt Depends.roomCompiler
+    testImplementation Depends.roomTest
+    testImplementation Depends.junit
+    testImplementation Depends.robolectric
+    testImplementation Depends.androidxTestCore
+    testImplementation Depends.androidXTestJunit
+    testImplementation Depends.androidXRules
+    testImplementation Depends.androidXRunner
+}
