@@ -37,6 +37,11 @@ object Depends {
     const val roomCompiler =
         "androidx.room:room-compiler:${Versions.room}"// To use Kotlin Symbolic Processing (KSP)
 
+    //hilt
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01"
+
     const val gson = "com.google.code.gson:gson:2.8.9"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 
@@ -56,6 +61,7 @@ object Depends {
 }
 
 object Versions {
+    const val hilt = "2.3.7"
     const val jvm = "1.8"
     const val kotlin = "1.5.31"
     const val compose = "1.0.5"

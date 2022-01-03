@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id "kotlin-kapt"
+//    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk Android.compileSdk
+
+    defaultConfig {
+        applicationId "cn.joestar.dbcreator"
+        minSdk Android.minSdk
+        targetSdk Android.targetSdk
+        versionCode Android.versionCode
+        versionName Android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    sourceSets{
+        main{
+            assets.srcDirs=["../assets"]
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Versions.compose
+    }
+}
+
+dependencies {
+    implementation project(path: ':database')
+    implementation Depends.androidx
+    implementation Depends.appcompat
+    implementation Depends.material
+    implementation Depends.livecycleKtx
+    implementation Depends.composeUI
+    implementation Depends.composeActivity
+    implementation Depends.composeMaterial
+    implementation Depends.composeMaterialIconCore
+    implementation Depends.coroutines
+    implementation Depends.gson
+//    implementation Depends.hilt
+//    implementation Depends.hiltViewModel
+//    kapt Depends.hiltCompiler
+
+    implementation Depends.room
+    implementation Depends.roomKtx
+    kapt Depends.roomCompiler
+    debugImplementation Depends.composeUiTool
+    testImplementation Depends.junit
+    androidTestImplementation Depends.androidXTestJunit
+}

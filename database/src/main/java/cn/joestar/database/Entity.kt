@@ -20,7 +20,7 @@ interface ILocation : ItemAble {
 
 @Entity
 class Location(
-    @PrimaryKey val locationId: Int,
+    @PrimaryKey(autoGenerate = false) val locationId: Int,
     val name: String,
     val landsId: Int = 0,
     val lands: String = ""
@@ -40,7 +40,7 @@ class Location(
 
 @Entity
 class Monster(
-    @PrimaryKey val monsterId: Int,
+    @PrimaryKey(autoGenerate = false) val monsterId: Int,
     val name: String,
     val type: String,
     val rare: String,
