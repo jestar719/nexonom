@@ -5,6 +5,7 @@ import androidx.room.*
 interface ItemAble {
     fun provideId(): Int
     fun provideName(): String
+    fun getShowText(): String
 }
 
 interface IMonster : ItemAble {
@@ -20,7 +21,7 @@ interface ILocation : ItemAble {
 
 @Entity
 class Location(
-    @PrimaryKey(autoGenerate = false) val locationId: Int,
+    @PrimaryKey val locationId: Int,
     val name: String,
     val landsId: Int = 0,
     val lands: String = ""
@@ -33,18 +34,23 @@ class Location(
 
     override fun provideName() = name
 
-    override fun toString(): String {
+    override fun getShowText(): String {
         return if (lands.isEmpty()) name else "$lands.$name"
+    }
+
+    override fun toString(): String {
+        val o = if (lands.isEmpty()) "" else ",$lands"
+        return "$locationId,$name,$landsId$o"
     }
 }
 
 @Entity
 class Monster(
-    @PrimaryKey(autoGenerate = false) val monsterId: Int,
+    @PrimaryKey val monsterId: Int,
     val name: String,
     val type: String,
     val rare: String,
-    @ColumnInfo(defaultValue = "") val other: String = ""
+    val other: String
 ) : IMonster {
     override fun provideId(): Int = monsterId
 
@@ -56,6 +62,10 @@ class Monster(
 
     override fun provideName(): String = name
 
+    override fun getShowText(): String {
+        return toString()
+    }
+
     override fun toString(): String {
         val o = if (other.isEmpty()) "" else ",$other"
         return "$monsterId,$name,$type,$rare$o"
@@ -63,17 +73,21 @@ class Monster(
 }
 
 @Entity(primaryKeys = ["monsterId", "locationId"])
-class MonsterLocation(val monsterId: Int, val locationId: Int, val landsId: Int) :
+class MonsterLocation(val mId: Int, val lId: Int, val landsId: Int) :
     Comparable<MonsterLocation> {
+    override fun toString(): String {
+        return "$mId,$lId,$landsId"
+    }
+
     override fun compareTo(other: MonsterLocation): Int {
         if (this == other)
             return 0
-        var result = monsterId - other.monsterId
+        var result = mId - other.mId
         if (result == 0) {
             result = landsId - other.landsId
         }
         if (result == 0) {
-            result = locationId - other.locationId
+            result = lId - other.lId
         }
         return result
     }
@@ -84,16 +98,16 @@ class MonsterLocation(val monsterId: Int, val locationId: Int, val landsId: Int)
 
         other as MonsterLocation
 
-        if (monsterId != other.monsterId) return false
-        if (locationId != other.locationId) return false
+        if (mId != other.mId) return false
+        if (lId != other.lId) return false
         if (landsId != other.landsId) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        var result = monsterId
-        result = 31 * result + locationId
+        var result = mId
+        result = 31 * result + lId
         result = 31 * result + landsId
         return result
     }
@@ -107,7 +121,11 @@ class DetailMonster(
         parentColumn = "monsterId",
         entity = Location::class,
         entityColumn = "locationId",
-        associateBy = Junction(MonsterLocation::class)
+        associateBy = Junction(
+            value = MonsterLocation::class,
+            parentColumn = "mId",
+            entityColumn = "lId"
+        )
     )
     var locations: List<Location>
 ) : IMonster by monster
@@ -119,7 +137,11 @@ class DetailLocation(
         parentColumn = "locationId",
         entity = Monster::class,
         entityColumn = "monsterId",
-        associateBy = Junction(MonsterLocation::class)
+        associateBy = Junction(
+            value = MonsterLocation::class,
+            parentColumn = "lId",
+            entityColumn = "mId"
+        )
     )
     var monsters: List<Monster>
 ) : ILocation by location

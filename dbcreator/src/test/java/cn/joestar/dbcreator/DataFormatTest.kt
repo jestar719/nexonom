@@ -103,7 +103,7 @@ class DataFormatTest {
 
     private fun writeJson(name: String, list: Collection<Any>) {
         val gson = Gson()
-        val string = gson.toJson(list)
+        val string = gson.toJson(list.map { it.toString() })
         File(target, name).writeText(string)
     }
 

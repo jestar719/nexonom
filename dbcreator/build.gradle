@@ -70,5 +70,6 @@ dependencies {
     kapt Depends.roomCompiler
     debugImplementation Depends.composeUiTool
     testImplementation Depends.junit
-    androidTestImplementation Depends.androidXTestJunit
+    testImplementation Depends.androidXTestJunit
+    testImplementation Depends.robolectric
 }

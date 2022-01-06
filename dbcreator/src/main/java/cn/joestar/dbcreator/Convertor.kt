@@ -12,17 +12,19 @@ class Convertor {
         Gson().fromJson<List<String>>(InputStreamReader(open), List::class.java)
 
     fun convertRelation(l: List<String>): List<MonsterLocation> {
-        return getSequence(l).map {
+        return getSequence(l).map { s ->
+            val it = cutString(s)
             MonsterLocation(
-                monsterId = it[0].toInt(),
-                locationId = it[1].toInt(),
+                mId = it[0].toInt(),
+                lId = it[1].toInt(),
                 landsId = it[2].toInt()
             )
         }.toList()
     }
 
     fun convertLocation(l: List<String>): List<Location> {
-        return getSequence(l).map {
+        return getSequence(l).map { s ->
+            val it = cutString(s)
             Location(
                 locationId = it[0].toInt(),
                 name = it[1],
@@ -33,7 +35,8 @@ class Convertor {
     }
 
     fun convertMonster(l: List<String>): List<Monster> {
-        val list = getSequence(l).map {
+        return getSequence(l).map { s ->
+            val it = cutString(s)
             Monster(
                 monsterId = it[0].toInt(),
                 name = it[0],
@@ -42,8 +45,9 @@ class Convertor {
                 other = if (it.size > 3) it[3] else ""
             )
         }.toList()
-        return list
     }
 
-    private fun getSequence(list: List<String>) = list.asSequence().map { it.split(",") }
+    private fun cutString(s: String) = s.split(",")
+
+    private fun getSequence(list: List<String>) = list.asSequence()
 }

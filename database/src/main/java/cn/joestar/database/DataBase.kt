@@ -1,9 +1,7 @@
 package cn.joestar.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.RoomDatabase
+import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 const val DB_NAME = "NexomonDb"
 const val DB_VERSION = 1
@@ -20,21 +18,21 @@ abstract class NexomonDatabase : RoomDatabase() {
 
 @Dao
 interface NexomonDao {
-//    @Query("SELECT * FROM Location WHERE landsId=:id")
-//    fun getLocations(id: Int = 0): Flow<List<Location>>
-//
-//    @Query("SELECT * FROM Monster WHERE monsterId in (:ids)")
-//    fun getMonsters(ids: List<Int>): Flow<List<DetailMonster>>
-//
-//    @Query("SELECT * FROM Location WHERE locationId=(:ids)")
-//    fun getDetailLocation(ids: List<Int>): Flow<List<DetailLocation>>
+    @Query("SELECT * FROM Location WHERE landsId=:id")
+    fun getLocations(id: Int = 0): Flow<List<Location>>
+
+    @Query("SELECT * FROM Monster WHERE monsterId in (:ids)")
+    fun getMonsters(ids: List<Int>): Flow<List<DetailMonster>>
+
+    @Query("SELECT * FROM Location WHERE locationId=(:ids)")
+    fun getDetailLocation(ids: List<Int>): Flow<List<DetailLocation>>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun addMonsters(monsters: List<Monster>)
+    fun addMonsters(monsters: List<Monster>): List<Long>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun addLocations(locations: List<Location>)
+    fun addLocations(locations: List<Location>): List<Long>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun addMonsterLocation(list: List<MonsterLocation>)
+    fun addMonsterLocation(list: List<MonsterLocation>): List<Long>
 }

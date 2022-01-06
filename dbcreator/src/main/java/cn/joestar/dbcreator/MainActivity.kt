@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -19,23 +20,26 @@ class MainActivity : ComponentActivity() {
             NexonomTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("DB Create")
+                    Greeting("DB Create") {
+                        viewModel.initDb()
+                    }
                 }
             }
-            viewModel.initDb()
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Greeting(name: String, click: () -> Unit) {
+    Button(onClick = click) {
+        Text(text = "Hello $name!")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     NexonomTheme {
-        Greeting("Android")
+        Greeting("Android") {}
     }
 }
