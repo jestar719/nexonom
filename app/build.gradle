@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id "kotlin-kapt"
 }
 
 android {
@@ -42,6 +43,7 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':database')
     implementation Depends.androidx
     implementation Depends.appcompat
     implementation Depends.material
@@ -51,6 +53,10 @@ dependencies {
     implementation Depends.composeMaterial
     implementation Depends.composeMaterialIconCore
     debugImplementation Depends.composeUiTool
+
+    implementation Depends.room
+    implementation Depends.roomKtx
+    kapt Depends.roomCompiler
     testImplementation Depends.junit
     androidTestImplementation Depends.androidXTestJunit
 }

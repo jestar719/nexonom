@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
             NexonomTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    Greeting(getString(R.string.app_name))
                 }
             }
         }
@@ -26,13 +26,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    Text(text = "$name!")
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     NexonomTheme {
-        Greeting("Android")
+        Greeting("Nexonom")
     }
 }

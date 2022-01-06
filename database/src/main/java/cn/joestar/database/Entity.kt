@@ -72,7 +72,7 @@ class Monster(
     }
 }
 
-@Entity(primaryKeys = ["monsterId", "locationId"])
+@Entity(primaryKeys = ["mId", "lId"])
 class MonsterLocation(val mId: Int, val lId: Int, val landsId: Int) :
     Comparable<MonsterLocation> {
     override fun toString(): String {
