@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cn.joestar.database.Location
 import cn.joestar.nexonom.entity.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -33,52 +34,47 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun onMenuItemClick(index: Int) {
-        getTab(index)
-    }
-
     private fun toDetailLocal(value: DetailLand, index: Int) {
-        val location = value.getList()[index]
+        val location = getLocationId(value, index)
         viewModelScope.launch {
-            DbRepository.getDetailLocation(location.locationId)
-                .map {
-                    DetailLocal(location.name, it)
-                }.collect(::updateEntity)
+            DbRepository.getDetailLocation(location.locationId).collect(::updateEntity)
         }
     }
 
+    private fun getLocationId(
+        value: ListMap,
+        index: Int
+    ): Location {
+        return value.getList()[index]
+    }
+
     private fun toLandDetail(value: Land, index: Int) {
-        val location = value.getList()[index]
+        val location = getLocationId(value, index)
         viewModelScope.launch {
             DbRepository.getLocations(location.locationId)
-                .map {
-                    DetailLand(location.name, location, it)
-                }.collect(::updateEntity)
+                .map { DetailLand(location.name, it) }
+                .collect(::updateEntity)
         }
     }
 
     private val indexMaps = 0
-    private val indexMonsters = 1
-    private fun getTab(index: Int) {
+
+    //    private val indexMonsters = 1
+    fun onMenuItemClick(index: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            if (index == indexMaps) {
-                getMapList(index)
-            } else if (index == indexMonsters) {
-                getMonsterList(index)
-            }
+            when (index) {
+                indexMaps -> {
+                    DbRepository.getLands().map {
+                        Land(itemLabels[index], it)
+                    }
+                }
+                else -> {
+                    DbRepository.getMonsters().map {
+                        Monsters(itemLabels[index], it)
+                    }
+                }
+            }.collect(::updateEntityByItemSelect)
         }
-    }
-
-    private suspend fun getMapList(index: Int) {
-        DbRepository.getLands().map {
-            Land(itemLabels[index], it)
-        }.collect(::updateEntityByItemSelect)
-    }
-
-    private suspend fun getMonsterList(index: Int) {
-        DbRepository.getMonsters().map {
-            Monsters(itemLabels[index], it)
-        }.collect(::updateEntityByItemSelect)
     }
 
     private fun updateEntityByItemSelect(entity: Entity) {

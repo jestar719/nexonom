@@ -9,9 +9,11 @@ import cn.joestar.database.DB_NAME
 import cn.joestar.database.Monster
 import cn.joestar.database.NexomonDao
 import cn.joestar.database.NexomonDatabase
+import cn.joestar.nexonom.entity.Monsters
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
@@ -47,15 +49,19 @@ object DbRepository {
 
     fun getMonsters(): Flow<List<Monster>> {
         return dao.getAllMonster().onEach {
-            it.forEach { monster ->
-                monster.isCollect = isCollect(monster)
-            }
+            it.forEach(this::setCollection)
         }
     }
 
     private const val selectChar = '1'
     private fun isCollect(monster: Monster): Boolean {
         return sequence[monster.monsterId] == selectChar
+    }
+
+    private fun setCollection(monster: Monster) {
+        monster.apply {
+            isCollect = sequence[monsterId] == selectChar
+        }
     }
 
     fun setSelect(id: Int) {
@@ -66,9 +72,17 @@ object DbRepository {
 
     fun getLands() = dao.getLocations()
     fun getLocations(locationId: Int = 0) = dao.getLocations(locationId)
-    fun getDetailLocation(locationId: Int) = dao.getDetailLocation(locationId).onEach {
-        it.monsters.forEach { monster ->
-            monster.isCollect = isCollect(monster)
+    fun getDetailLocation(locationId: Int) = dao.getDetailLocation(locationId).map {
+        val list = it.monsters
+        list.forEach(this::setCollection)
+        Monsters(it.location.name, list)
+    }
+
+    fun get() {
+        dao.getDetailLocation(1).map {
+            val list = it.monsters
+            list.forEach(this::setCollection)
+            Monsters(it.location.name, list)
         }
     }
 
