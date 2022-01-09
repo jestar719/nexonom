@@ -58,9 +58,23 @@ class MainViewModel : ViewModel() {
     }
 
     private val indexMaps = 0
+    private val indexMonsters = 1
+    private val indexExport = 2
+    private val indexImport = 3
 
-    //    private val indexMonsters = 1
     fun onMenuItemClick(index: Int) {
+        when (index) {
+            indexExport -> DbRepository.exportSequence()
+            indexImport -> {
+                DbRepository.importSequence()
+                stack.clear()
+                current = DefaultEntity
+            }
+            else -> getEntities(index)
+        }
+    }
+
+    private fun getEntities(index: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             when (index) {
                 indexMaps -> {
@@ -88,7 +102,7 @@ class MainViewModel : ViewModel() {
         current = entity
     }
 
-    private val itemLabels = arrayOf("Maps", "Monsters")
+    private val itemLabels = arrayOf("Maps", "Monsters", "Export", "Import")
 
     fun onBack(): Boolean {
         return try {

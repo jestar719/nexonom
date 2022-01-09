@@ -5,5 +5,7 @@
     <string-array name="menus">
         <item>Maps</item>
         <item>Monsters</item>
+        <item>Export</item>
+        <item>Import</item>
     </string-array>
 </resources>
