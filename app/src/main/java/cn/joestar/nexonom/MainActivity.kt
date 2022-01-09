@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NexonomTheme {
-                Surface() {
+                Surface {
                     ScaffoldScreen(
                         entity = model.current,
                         onMenuItemClick = model::onMenuItemClick,
