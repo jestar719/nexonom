@@ -3,8 +3,8 @@ package cn.joestar.nexonom.ui.view
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 fun TitleBar(
     title: String,
     isEdit: Boolean,
+    canEdit: Boolean,
     onEditClick: () -> Unit,
     drawerState: ScaffoldState,
     scope: CoroutineScope
@@ -39,11 +40,13 @@ fun TitleBar(
             }
         },
         actions = {
-            IconButton(onClick = onEditClick) {
-                Icon(
-                    if (isEdit) Icons.Default.Edit else Icons.Default.Close,
-                    contentDescription = "Edit", tint = Color.White
-                )
+            if (canEdit) {
+                IconButton(onClick = onEditClick) {
+                    Icon(
+                        if (isEdit) Icons.Default.Lock else Icons.Default.Edit,
+                        contentDescription = "Edit", tint = Color.White
+                    )
+                }
             }
         }
     )
@@ -52,11 +55,12 @@ fun TitleBar(
 @Preview
 @Composable
 fun TitleBarPreview() {
-    var isEdit by remember { mutableStateOf(true) }
+    var isEdit by remember { mutableStateOf(false) }
     val onEditClick: () -> Unit = { isEdit = !isEdit }
     TitleBar(
         title = "Nexonom",
         isEdit = isEdit,
+        canEdit = true,
         onEditClick = onEditClick,
         drawerState = rememberScaffoldState(),
         scope = rememberCoroutineScope()
