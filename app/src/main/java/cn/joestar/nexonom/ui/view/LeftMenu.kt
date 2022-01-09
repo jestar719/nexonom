@@ -11,10 +11,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -41,26 +39,28 @@ fun LeftMenu(onItemClickListener: (Int) -> Unit) {
                 Text(
                     text = stringResource(R.string.app_name),
                     color = colors.onPrimary,
-                    fontSize = 24.sp
+                    fontSize = 32.sp
                 )
                 Text(
+                    modifier = Modifier.padding(8.dp),
                     text = "Version ${BuildConfig.VERSION_NAME}",
                     color = colors.onPrimary,
                     fontSize = 16.sp
                 )
             }
-            MenuDivider()
             val items = stringArrayResource(id = R.array.menus)
             LazyColumn(modifier = Modifier.fillMaxWidth()) {
                 itemsIndexed(items) { index, item ->
+                    MenuDivider()
                     Text(
                         text = item,
                         modifier = Modifier
-                            .padding(8.dp)
+                            .padding(24.dp)
                             .clickable { onItemClickListener(index) },
-                        style = MenuTextStyle
+                        color = colors.onPrimary,
+                        fontSize = 16.sp,
+                        textAlign = TextAlign.Start
                     )
-                    MenuDivider()
                 }
             }
         }
@@ -71,11 +71,6 @@ fun LeftMenu(onItemClickListener: (Int) -> Unit) {
 fun MenuDivider() {
     Divider(color = colors.onPrimary, thickness = 1.dp)
 }
-
-val MenuTextStyle = TextStyle(
-    color = Color.White, fontSize = 24.sp,
-    textAlign = TextAlign.Start
-)
 
 @Preview
 @Composable
