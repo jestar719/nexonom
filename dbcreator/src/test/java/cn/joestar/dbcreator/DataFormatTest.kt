@@ -14,7 +14,7 @@ import kotlin.collections.HashMap
 
 class DataFormatTest {
     private val root = File("../RawData")
-    val target = File("../assets")
+    private val target = File("src/main/assets")
     private val locationRank = arrayOf(
         "Orphanage",
         "Palmaya",

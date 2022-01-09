@@ -13,7 +13,7 @@ import java.io.FileInputStream
 class DataCheckTest {
     private val convertor = Convertor()
 
-    private val root = File("../assets")
+    private val root = File("")
 
     @Test
     fun testConvertMonster() {

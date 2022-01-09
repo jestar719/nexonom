@@ -19,7 +19,7 @@ import java.io.InputStream
 class MainRepositoryTest {
 
     private val context: DbContext = object : DbContext {
-        val rootFile = File("../assets")
+        val rootFile = File("")
         val db by lazy {
             Room.inMemoryDatabaseBuilder(
                 RuntimeEnvironment.application, NexomonDatabase::class.java,
