@@ -3,36 +3,34 @@ package cn.joestar.nexonom
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.MaterialTheme
+import androidx.activity.viewModels
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import cn.joestar.nexonom.ui.theme.NexonomTheme
+import cn.joestar.nexonom.ui.view.ScaffoldScreen
 
+@ExperimentalMaterialApi
 class MainActivity : ComponentActivity() {
+    private val model: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             NexonomTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    Greeting(getString(R.string.app_name))
+                Surface() {
+                    ScaffoldScreen(
+                        entity = model.current,
+                        onMenuItemClick = model::onMenuItemClick,
+                        onItemClick = model::next
+                    )
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "$name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    NexonomTheme {
-        Greeting("Nexonom")
+    override fun onBackPressed() {
+        if (!model.onBack()) {
+            super.onBackPressed()
+        }
     }
 }

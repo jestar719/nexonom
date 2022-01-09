@@ -21,11 +21,14 @@ interface NexomonDao {
     @Query("SELECT * FROM Location WHERE landsId=:id")
     fun getLocations(id: Int = 0): Flow<List<Location>>
 
-    @Query("SELECT * FROM Monster WHERE monsterId in (:ids)")
-    fun getMonsters(ids: List<Int>): Flow<List<DetailMonster>>
+    @Query("SELECT * FROM Monster WHERE monsterId =:id")
+    fun getMonsters(id: Int): Flow<DetailMonster>
 
-    @Query("SELECT * FROM Location WHERE locationId=(:ids)")
-    fun getDetailLocation(ids: List<Int>): Flow<List<DetailLocation>>
+    @Query("SELECT * FROM Monster")
+    fun getAllMonster(): Flow<List<Monster>>
+
+    @Query("SELECT * FROM Location WHERE locationId=:id")
+    fun getDetailLocation(id: Int): Flow<DetailLocation>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     fun addMonsters(monsters: List<Monster>): List<Long>

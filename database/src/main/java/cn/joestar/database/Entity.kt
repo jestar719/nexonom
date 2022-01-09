@@ -50,8 +50,19 @@ class Monster(
     val name: String,
     val type: String,
     val rare: String,
-    val other: String
+    val other: String,
+    @Ignore
+    var isCollect: Boolean = false
 ) : IMonster {
+    constructor(
+        monsterId: Int,
+        name: String,
+        type: String,
+        rare: String,
+        other: String,
+    ) : this(monsterId, name, type, rare, other, false) {
+    }
+
     override fun provideId(): Int = monsterId
 
     override fun provideType() = type
@@ -65,7 +76,6 @@ class Monster(
     override fun getShowText(): String {
         return toString()
     }
-
     override fun toString(): String {
         val o = if (other.isEmpty()) "" else ",$other"
         return "$monsterId,$name,$type,$rare$o"

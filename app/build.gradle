@@ -52,6 +52,7 @@ dependencies {
     implementation Depends.composeActivity
     implementation Depends.composeMaterial
     implementation Depends.composeMaterialIconCore
+    implementation Depends.composeViewModel
     debugImplementation Depends.composeUiTool
 
     implementation Depends.room

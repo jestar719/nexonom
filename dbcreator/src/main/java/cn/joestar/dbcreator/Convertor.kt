@@ -39,10 +39,10 @@ class Convertor {
             val it = cutString(s)
             Monster(
                 monsterId = it[0].toInt(),
-                name = it[0],
-                type = it[1],
-                rare = it[2],
-                other = if (it.size > 3) it[3] else ""
+                name = it[1],
+                type = it[2],
+                rare = it[3],
+                other = if (it.size > 4) it[4] else ""
             )
         }.toList()
     }

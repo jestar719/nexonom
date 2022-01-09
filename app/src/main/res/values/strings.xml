@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Nexonom</string>
+
+
+    <string-array name="menus">
+        <item>Maps</item>
+        <item>Monsters</item>
+    </string-array>
 </resources>
