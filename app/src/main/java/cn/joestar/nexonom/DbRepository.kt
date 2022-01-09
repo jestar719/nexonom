@@ -1,6 +1,9 @@
 package cn.joestar.nexonom
 
 import android.content.Context
+import android.content.SharedPreferences
+import android.util.Log
+import androidx.annotation.VisibleForTesting
 import androidx.room.Room
 import cn.joestar.database.DB_NAME
 import cn.joestar.database.Monster
@@ -14,12 +17,29 @@ import kotlinx.coroutines.launch
 
 object DbRepository {
     private lateinit var db: NexomonDatabase
+    private const val spName = "nexonomSp"
+    private const val collectSequence = "collectSequence"
+    private lateinit var sp: SharedPreferences
+    private lateinit var sequence: StringBuilder
+
     fun initDb(context: Context) {
         CoroutineScope(Dispatchers.IO).launch {
             db = Room.databaseBuilder(context, NexomonDatabase::class.java, DB_NAME)
                 .createFromAsset(DB_NAME.plus(".db"))
                 .build()
         }
+        sp = context.getSharedPreferences(spName, Context.MODE_PRIVATE)
+        val sq = sp.getString(collectSequence, null)
+        sequence = if (sq == null) getDefaultSequence() else StringBuilder().append(sq)
+    }
+
+    @VisibleForTesting
+    fun getDefaultSequence(): StringBuilder {
+        val builder = StringBuilder()
+        repeat(400) {
+            builder.append("0")
+        }
+        return builder
     }
 
     private val dao: NexomonDao
@@ -33,13 +53,26 @@ object DbRepository {
         }
     }
 
+    private const val selectChar = '1'
     private fun isCollect(monster: Monster): Boolean {
-        return false
+        return sequence[monster.monsterId] == selectChar
+    }
+
+    fun setSelect(id: Int) {
+        sequence.replace(id, id + 1, selectChar.toString())
+        val toString = sequence.toString()
+        sp.edit().putString(collectSequence, toString).apply()
     }
 
     fun getLands() = dao.getLocations()
-
     fun getLocations(locationId: Int = 0) = dao.getLocations(locationId)
-    fun getDetailLocation(locationId: Int) = dao.getDetailLocation(locationId)
+    fun getDetailLocation(locationId: Int) = dao.getDetailLocation(locationId).onEach {
+        it.monsters.forEach { monster ->
+            monster.isCollect = isCollect(monster)
+        }
+    }
 
+    private fun logD(event: String) {
+        Log.d(this::class.simpleName, "Sequence is $sequence")
+    }
 }

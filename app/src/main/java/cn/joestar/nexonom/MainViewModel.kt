@@ -18,6 +18,10 @@ class MainViewModel : ViewModel() {
 
     fun next(index: Int) {
         when (val value = current) {
+            is ListMonster -> {
+                val id = value.getList()[index].monsterId
+                DbRepository.setSelect(id)
+            }
             is MapEntity -> {
                 when (value) {
                     is Land -> toLandDetail(value, index)
@@ -30,8 +34,6 @@ class MainViewModel : ViewModel() {
     }
 
     fun onMenuItemClick(index: Int) {
-        stack.clear()
-        stack.push(DefaultEntity)
         getTab(index)
     }
 
@@ -70,13 +72,19 @@ class MainViewModel : ViewModel() {
     private suspend fun getMapList(index: Int) {
         DbRepository.getLands().map {
             Land(itemLabels[index], it)
-        }.collect(::updateEntity)
+        }.collect(::updateEntityByItemSelect)
     }
 
     private suspend fun getMonsterList(index: Int) {
         DbRepository.getMonsters().map {
             Monsters(itemLabels[index], it)
-        }.collect(::updateEntity)
+        }.collect(::updateEntityByItemSelect)
+    }
+
+    private fun updateEntityByItemSelect(entity: Entity) {
+        stack.clear()
+        stack.push(DefaultEntity)
+        current = entity
     }
 
     private fun updateEntity(entity: Entity) {
