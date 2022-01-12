@@ -49,7 +49,9 @@ fun getMonsters(
     onItemSelect: (Int) -> Unit
 ) {
     return scope.itemsIndexed(monsters) { index, item ->
-        MonsterItem(edit, index, item, onItemSelect)
+        if (!edit || !item.isCollect) {
+            MonsterItem(true, index, item, onItemSelect)
+        }
     }
 }
 

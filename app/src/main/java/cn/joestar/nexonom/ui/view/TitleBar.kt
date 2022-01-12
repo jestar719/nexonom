@@ -3,9 +3,9 @@ package cn.joestar.nexonom.ui.view
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -43,7 +43,7 @@ fun TitleBar(
             if (canEdit) {
                 IconButton(onClick = onEditClick) {
                     Icon(
-                        if (isEdit) Icons.Default.Lock else Icons.Default.Edit,
+                        if (isEdit) Icons.Default.Refresh else Icons.Default.Info,
                         contentDescription = "Edit", tint = Color.White
                     )
                 }
@@ -59,7 +59,7 @@ fun TitleBarPreview() {
     val onEditClick: () -> Unit = { isEdit = !isEdit }
     TitleBar(
         title = "Nexonom",
-        isEdit = isEdit,
+        isEdit = true,
         canEdit = true,
         onEditClick = onEditClick,
         drawerState = rememberScaffoldState(),
