@@ -166,7 +166,7 @@ class FlexArrangementStart : AbsFlexArrangement() {
 }
 
 /***
- * layout items at center,space is divider
+ * layout items at center,space is [divider]
  */
 class FlexArrangementCenter : AbsFlexArrangement() {
     override fun computeStart(divider: Int, maxWidth: Int, line: FlexLine) {

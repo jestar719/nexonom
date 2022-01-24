@@ -1,5 +1,6 @@
 package cn.joestar.nexonom.ui.view
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
@@ -13,6 +14,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import cn.joestar.database.DetailMonster
+import cn.joestar.database.IMonster
 import cn.joestar.database.Location
 import cn.joestar.database.Monster
 import cn.joestar.nexonom.entity.ListEntity
@@ -74,68 +77,119 @@ fun LocationItem(index: Int, location: Location, onItemSelect: (Int) -> Unit) {
 }
 
 @Composable
+fun MonsterView(edit: Boolean, index: Int, item: IMonster, onItemSelect: (Int) -> Unit) {
+    if (item is DetailMonster) {
+        DetailMonsterItem(edit = edit, item = item as DetailMonster)
+    } else {
+        MonsterItem(edit = edit, index = index, item = item as Monster, onItemSelect = onItemSelect)
+    }
+}
+
+@Composable
+fun DetailMonsterItem(edit: Boolean, item: DetailMonster) {
+    var expend by remember {
+        mutableStateOf(false)
+    }
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(4.dp)
+            .clickable { expend = !expend },
+        elevation = 4.dp
+    ) {
+        if (expend) {
+            Column {
+                MonsterRow(edit, item.monster)
+                Spacer(modifier = Modifier.height(4.dp))
+                FlexLayout(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(4.dp),
+                    divider = 8.dp,
+                    factory = { FlexArrangementSpaceEvenly() }
+                ) {
+                    item.locations.forEach {
+                        Text(
+                            text = it.getShowText(),
+                            modifier = Modifier.padding(4.dp),
+                            fontSize = 16.sp
+                        )
+                    }
+                }
+            }
+        } else {
+            MonsterRow(edit, item.monster)
+        }
+    }
+}
+
+@Composable
+private fun MonsterRow(edit: Boolean, item: Monster) {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .padding(4.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            if (edit) {
+                var enable by remember {
+                    mutableStateOf(item.isCollect)
+                }
+                Checkbox(
+                    checked = enable,
+                    modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp),
+                    enabled = !enable,
+                    onCheckedChange = {
+                        enable = it
+                        if (it) {
+                            item.isCollect = true
+                        }
+                    })
+            }
+            Text(
+                modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp),
+                text = item.monsterId.convertToString()
+            )
+        }
+        Text(
+            text = item.name,
+            color = getColorByRare(item.rare),
+            fontSize = 20.sp
+        )
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.padding(8.dp)
+        ) {
+            Text(
+                text = item.type,
+                color = getColorByType(item.type)
+            )
+            if (item.other.isNotEmpty()) {
+                Text(
+                    text = item.other,
+                    color = Color.Gray,
+                    fontSize = 13.sp
+                )
+            }
+        }
+    }
+}
+
+@Composable
 fun MonsterItem(edit: Boolean, index: Int, item: Monster, onItemSelect: (Int) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(4.dp),
+            .padding(4.dp)
+            .clickable { onItemSelect(index) },
         elevation = 4.dp
     ) {
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(4.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                if (edit) {
-                    var enable by remember {
-                        mutableStateOf(item.isCollect)
-                    }
-                    Checkbox(
-                        checked = enable,
-                        modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp),
-                        enabled = !enable,
-                        onCheckedChange = {
-                            enable = it
-                            if (it) {
-                                onItemSelect(index)
-                                item.isCollect = true
-                            }
-                        })
-                }
-                Text(
-                    modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp),
-                    text = item.monsterId.convertToString()
-                )
-            }
-            Text(
-                text = item.name,
-                color = getColorByRare(item.rare),
-                fontSize = 20.sp
-            )
-
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(8.dp)
-            ) {
-                Text(
-                    text = item.type,
-                    color = getColorByType(item.type)
-                )
-                if (item.other.isNotEmpty()) {
-//                    Spacer(Modifier.padding(0.dp,4.dp))
-                    Text(
-                        text = item.other,
-                        color = Color.Gray,
-                        fontSize = 13.sp
-                    )
-                }
-            }
-        }
+        MonsterRow(edit = edit, item = item)
     }
 }
 
